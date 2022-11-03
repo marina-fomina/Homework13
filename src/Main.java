@@ -13,8 +13,17 @@ public class Main {
         System.out.println(hyundai);
 
         audi.pitStop();
+        audi.bestLapTime();
+        audi.maxSpeed();
+        bmw.pitStop();
         bmw.bestLapTime();
+        bmw.maxSpeed();
+        kia.pitStop();
+        kia.bestLapTime();
         kia.maxSpeed();
+        hyundai.pitStop();
+        hyundai.bestLapTime();
+        hyundai.maxSpeed();
 
         // Класс "Грузовые автомобили"
         System.out.println(" ");
@@ -30,8 +39,17 @@ public class Main {
         System.out.println(renault);
 
         volvo.pitStop();
+        volvo.bestLapTime();
+        volvo.maxSpeed();
+        nissan.pitStop();
         nissan.bestLapTime();
+        nissan.maxSpeed();
+        man.pitStop();
+        man.bestLapTime();
         man.maxSpeed();
+        renault.pitStop();
+        renault.bestLapTime();
+        renault.maxSpeed();
 
 
         // Класс "Автобусы"
@@ -48,18 +66,33 @@ public class Main {
         System.out.println(liaz);
 
         scania.pitStop();
+        scania.bestLapTime();
+        scania.maxSpeed();
+        maz.pitStop();
         maz.bestLapTime();
+        maz.maxSpeed();
+        olimp.pitStop();
+        olimp.bestLapTime();
         olimp.maxSpeed();
+        liaz.pitStop();
+        liaz.bestLapTime();
+        liaz.maxSpeed();
 
         // Класс "Водители"
         System.out.println(" ");
         System.out.println("Класс Водители");
 
-        Driver<Car> carDriver = new Driver<> ("Петров Виталий Александрович", "В", 5);
-        Driver<Truck> truckDriver = new Driver<>("Николаев Эдуард Валентинович", "С", 8);
-        Driver<Bus> busDriver = new Driver<>("Смирнов Иван Дмитриевич", "D", 11);
-        carDriver.takePartInCompetition(bmw);
-        truckDriver.takePartInCompetition(nissan);
-        busDriver.takePartInCompetition(olimp);
+        Driver<Car> carDriver1 = new Driver<> ("Петров Виталий Александрович", "В", 5);
+        Driver<Car> carDriver2 = new Driver<>("Голубев Александр Юрьевич", "В", 7);
+        Driver<Truck> truckDriver1 = new Driver<>("Николаев Эдуард Валентинович", "С", 8);
+        Driver<Truck> truckDriver2 = new Driver<>("Каргинов Андрей Олегович", "С", 12);
+        Driver<Bus> busDriver1 = new Driver<>("Смирнов Иван Дмитриевич", "D", 11);
+        Driver<Bus> busDriver2 = new Driver<>("Прудников Семён Николаевич", "D", 6);
+        carDriver1.takePartInCompetition(bmw);
+        carDriver2.takePartInCompetition(audi);
+        truckDriver1.takePartInCompetition(nissan);
+        truckDriver2.takePartInCompetition(renault);
+        busDriver1.takePartInCompetition(olimp);
+        busDriver2.takePartInCompetition(scania);
     }
 }
