@@ -1,6 +1,9 @@
 public class Bus extends Transport implements Competing {
-    public Bus(String brand, String model, double engineVolume, String bestLapTime, int maxSpeed) {
+
+    private final SeatingCapacity seatingCapacity;
+    public Bus(String brand, String model, double engineVolume, String bestLapTime, int maxSpeed, SeatingCapacity seatingCapacity) {
         super(brand, model, engineVolume, bestLapTime, maxSpeed);
+        this.seatingCapacity = seatingCapacity;
     }
     public String toString() {
         return "Автобус " + getBrand() + " " + getModel() + ". Объем двигателя - " + getEngineVolume() + " литра.";
@@ -17,6 +20,15 @@ public class Bus extends Transport implements Competing {
     }
 
     @Override
+    public void printType() {
+        if (this.seatingCapacity != null) {
+            System.out.println(this.seatingCapacity);
+        } else {
+            System.out.println("Данных по автобусу недостаточно.");
+        }
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("Автобус " + getBrand() + " заезжает на pit-stop.");
     }
@@ -29,5 +41,9 @@ public class Bus extends Transport implements Competing {
     @Override
     public void maxSpeed() {
         System.out.println("Максимальная скорость автобуса " + getBrand() + " - " + getMaxSpeed() + " км/ч.");
+    }
+
+    public SeatingCapacity getSeatingCapacity() {
+        return seatingCapacity;
     }
 }

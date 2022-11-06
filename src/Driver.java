@@ -1,4 +1,4 @@
-public class Driver <B extends Transport & Competing> {
+public abstract class Driver <B extends Transport & Competing> {
 
     private final String name;
     private final String drivingLicenseType;
@@ -23,7 +23,7 @@ public class Driver <B extends Transport & Competing> {
     }
 
     public void startDriving() {
-        System.out.println("Водитель " + name + " начинает движение.");
+        System.out.printf("Водитель %s начинает движение.", this.name);
     }
 
     public void stopDriving() {
