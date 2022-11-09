@@ -12,6 +12,13 @@ public abstract class Driver <B extends Transport & Competing> {
         setDrivingExperience(drivingExperience);
     }
 
+    public void checkDrivingLicense() {
+        if (drivingLicenseType.equals("B") || drivingLicenseType.equals("C") || drivingLicenseType.equals("D")) {
+        } else {
+            throw new IllegalArgumentException("Необходимо указать тип прав!");
+        }
+    }
+
     public String toString() {
         return "Водитель " + name + " имеет водительское удостоверение категории " + drivingLicenseType +
                 ". Водительский стаж - " + drivingExperience + " лет.";

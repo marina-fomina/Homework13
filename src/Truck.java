@@ -1,8 +1,13 @@
 public class Truck extends Transport implements Competing {
 private final CargoCapacity cargoCapacity;
-    public Truck (String brand, String model, double engineVolume, String bestLapTime, int maxSpeed, CargoCapacity cargoCapacity) {
+
+private boolean diagnostics;
+
+    public Truck (String brand, String model, double engineVolume, String bestLapTime, int maxSpeed, CargoCapacity cargoCapacity,
+                  boolean diagnostics) {
         super(brand, model, engineVolume, bestLapTime, maxSpeed);
         this.cargoCapacity = cargoCapacity;
+        this.diagnostics = diagnostics;
     }
     public String toString() {
         return "Грузовой автомобиль " + getBrand() + " " + getModel() + ". Объем двигателя - " + getEngineVolume() + " литра.";
@@ -28,6 +33,15 @@ private final CargoCapacity cargoCapacity;
     }
 
     @Override
+    public void doDiagnistics() {
+        if (this.diagnostics == true) {
+            System.out.println("Автомобиль " + getBrand() + " " + getModel() + " прошел диагностику.");
+        } else {
+            throw new DiagnosticsException("Автомобиль " + getBrand() + " " + getModel() + " не прошел диагностику!");
+        }
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("Грузовой автомобиль " + getBrand() + " " + getModel() + " заезжает на pit-stop.");
     }
@@ -44,5 +58,13 @@ private final CargoCapacity cargoCapacity;
 
     public CargoCapacity getCargoCapacity() {
         return cargoCapacity;
+    }
+
+    public boolean isDiagnostics() {
+        return diagnostics;
+    }
+
+    public void setDiagnostics(boolean diagnostics) {
+        this.diagnostics = diagnostics;
     }
 }

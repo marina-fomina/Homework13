@@ -24,6 +24,8 @@ public abstract class Transport {
 
     public abstract void printType();
 
+    public abstract void doDiagnistics();
+
     public String getBrand() {
         return brand;
     }

@@ -1,9 +1,13 @@
 public class Car extends Transport implements Competing {
 private final BodyType bodyType;
 
-    public Car(String brand, String model, double engineVolume, String bestLapTime, int maxSpeed, BodyType bodyType) {
+private boolean diagnostics;
+
+    public Car(String brand, String model, double engineVolume, String bestLapTime, int maxSpeed, BodyType bodyType,
+               boolean diagnostics) {
         super(brand, model, engineVolume, bestLapTime, maxSpeed);
         this.bodyType = bodyType;
+        this.diagnostics = diagnostics;
     }
 
     @Override
@@ -31,6 +35,15 @@ private final BodyType bodyType;
     }
 
     @Override
+    public void doDiagnistics() {
+        if (this.diagnostics == true) {
+            System.out.println("Автомобиль " + getBrand() + " " + getModel() + " прошел диагностику.");
+        } else {
+            throw new DiagnosticsException("Автомобиль " + getBrand() + " " + getModel() + " не прошел диагностику!");
+        }
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("Легковой автомобиль " + getBrand() + " " + getModel() + " заезжает на pit-stop.");
     }
@@ -47,5 +60,13 @@ private final BodyType bodyType;
 
     public BodyType getBodyType() {
         return bodyType;
+    }
+
+    public boolean isDiagnostics() {
+        return diagnostics;
+    }
+
+    public void setDiagnostics(boolean diagnostics) {
+        this.diagnostics = diagnostics;
     }
 }
