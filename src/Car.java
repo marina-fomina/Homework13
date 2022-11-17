@@ -3,6 +3,8 @@ private final BodyType bodyType;
 
 private boolean diagnostics;
 
+//private DriverB driverB;
+
     public Car(String brand, String model, double engineVolume, String bestLapTime, int maxSpeed, BodyType bodyType,
                boolean diagnostics) {
         super(brand, model, engineVolume, bestLapTime, maxSpeed);
@@ -41,6 +43,11 @@ private boolean diagnostics;
         } else {
             throw new DiagnosticsException("Автомобиль " + getBrand() + " " + getModel() + " не прошел диагностику!");
         }
+    }
+
+    @Override
+    public void repair() {
+        System.out.println("Легковой автомобиль " + getBrand() + " " + getModel() + " отремонтирован.");
     }
 
     @Override

@@ -42,6 +42,11 @@ private boolean diagnostics;
     }
 
     @Override
+    public void repair() {
+        System.out.println("Грузовой автомобиль " + getBrand() + " " + getModel() + " отремонтирован.");
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("Грузовой автомобиль " + getBrand() + " " + getModel() + " заезжает на pit-stop.");
     }
