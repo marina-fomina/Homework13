@@ -14,12 +14,12 @@ public abstract class Transport {
 
     private static final String DEFAULT_VALUE = "default";
 
-    private ArrayList<Transport> allTransportList = new ArrayList<>();
-    private LinkedList<Driver<?>> allDriverList = new LinkedList<>();
+    private final ArrayList<Transport> allTransportList = new ArrayList<>();
+    private final LinkedList<Driver<?>> allDriverList = new LinkedList<>();
 
-    private ArrayList<Sponsor> allSponsorList = new ArrayList<>();
+    private final ArrayList<Sponsor> allSponsorList = new ArrayList<>();
 
-    private ArrayList<Mechanic<?>> allMechanicList = new ArrayList<>();
+    private final ArrayList<Mechanic<?>> allMechanicList = new ArrayList<>();
 
     public Transport(String brand, String model, double engineVolume, String bestLapTime, int maxSpeed) {
         setBrand(brand);
@@ -27,10 +27,6 @@ public abstract class Transport {
         this.engineVolume = engineVolume > 0 ? engineVolume : 2;
         setBestLapTime(bestLapTime);
         setMaxSpeed(maxSpeed);
-        allTransportList = new ArrayList<>();
-        allDriverList = new LinkedList<>();
-        allSponsorList = new ArrayList<>();
-        allMechanicList = new ArrayList<>();
     }
 
     public abstract void startMoving();

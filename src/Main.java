@@ -228,8 +228,8 @@ public class Main {
         }
 
         ServiceStation station1 = new ServiceStation("Станция тех. обслуживания 1");
-        station1.addCarToQueue(audi);
-        station1.addTruckToQueue(man);
+        station1.addToTransportQueue(audi);
+        station1.addToTransportQueue(man);
         station1.service();
         station1.service();
 
@@ -254,10 +254,6 @@ public class Main {
         System.out.println("Первая очередь: " + queue1);
         System.out.println("Вторая очередь: " + queue2);
 
-        // Задание с двумерным списком
-        System.out.println(" ");
-        System.out.println("Задание с двумерным списком");
-        example();
     }
 
     public static boolean checkLoginAndPassword(String login, String password, String confirmPassword) {
@@ -310,22 +306,6 @@ public class Main {
             queue1.poll();
         } else {
             queue2.poll();
-        }
-    }
-
-    private static void example() {
-        List<List<String>> biDemArrList = new ArrayList<>();
-        for (int i = 0; i < 8; i++) {
-            biDemArrList.add(i, new ArrayList<>());
-            for (int j = 0; j < 8; j++) {
-                biDemArrList.get(i).add(j, (i + j) % 2 == 1 ? "•" : "◯");
-            }
-        }
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                System.out.print(biDemArrList.get(i).get(j) + " ");
-            }
-            System.out.println();
         }
     }
 }
