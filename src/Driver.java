@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public abstract class Driver <B extends Transport & Competing> {
 
     private final String name;
@@ -55,5 +57,18 @@ public abstract class Driver <B extends Transport & Competing> {
 
     public void setDrivingExperience(int drivingExperience) {
         this.drivingExperience = drivingExperience > 0 ? drivingExperience : 1;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver<?> driver = (Driver<?>) o;
+        return Objects.equals(name, driver.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }

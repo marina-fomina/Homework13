@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.*;
 
 public abstract class Transport {
     private String brand;
@@ -14,12 +12,12 @@ public abstract class Transport {
 
     private static final String DEFAULT_VALUE = "default";
 
-    private final ArrayList<Transport> allTransportList = new ArrayList<>();
-    private final LinkedList<Driver<?>> allDriverList = new LinkedList<>();
+    private final Set<Transport> allTransportList = new HashSet<>();
+    private final Set<Driver<?>> allDriverList = new HashSet<>();
 
-    private final ArrayList<Sponsor> allSponsorList = new ArrayList<>();
+    private final Set<Sponsor> allSponsorList = new HashSet<>();
 
-    private final ArrayList<Mechanic<?>> allMechanicList = new ArrayList<>();
+    private final Set<Mechanic<?>> allMechanicList = new HashSet<>();
 
     public Transport(String brand, String model, double engineVolume, String bestLapTime, int maxSpeed) {
         setBrand(brand);
@@ -87,18 +85,32 @@ public abstract class Transport {
         this.maxSpeed = maxSpeed > 0 ? maxSpeed : 150;
     }
 
-    public ArrayList<Transport> getAllTransportList() {
+    public Set<Transport> getAllTransportList() {
         return allTransportList;
     }
 
-    public LinkedList<Driver<?>> getAllDriverList() {
+    public Set<Driver<?>> getAllDriverList() {
         return allDriverList;
     }
-    public ArrayList<Sponsor> getAllSponsorList() {
+
+    public Set<Sponsor> getAllSponsorList() {
         return allSponsorList;
     }
 
-    public ArrayList<Mechanic<?>> getAllMechanicList() {
+    public Set<Mechanic<?>> getAllMechanicList() {
         return allMechanicList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport transport = (Transport) o;
+        return Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model);
     }
 }
